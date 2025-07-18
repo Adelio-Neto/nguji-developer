@@ -212,10 +212,10 @@ h6 {
   color: var(--heading-color);
 }
 
-.header .btn-getstarted,
-.header .btn-getstarted:focus {
+.header .btn-getstarte,
+.header .btn-getstarte:focus {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background: #fac114;
   font-size: 14px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
@@ -224,10 +224,11 @@ h6 {
   border: 2px solid color-mix(in srgb, var(--contrast-color), transparent 90%);
 }
 
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
-  background: color-mix(in srgb, var(--contrast-color), transparent 90%);
+.header .btn-getstarte:hover,
+.header .btn-getstarte:focus:hover {
+  color: #fff;
+  border: 2px solid #fac014c2;
+  background: #fac014c2;
 }
 
 @media (max-width: 1200px) {
