@@ -4668,20 +4668,6 @@ section,
   margin-bottom: 200px;
 }
 
-.services-2 .section-title {
-  text-align: left;
-}
-
-.services-2 .section-title h2 {
-  color: color-mix(in srgb, var(--contrast-color), transparent 50%);
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.services-2 .section-title p {
-  color: var(--contrast-color);
-}
-
 .services-2 .services-carousel-wrap {
   position: relative;
   margin-bottom: -200px;
@@ -4698,11 +4684,7 @@ section,
 
 .services-2 .service-item:before {
   content: "";
-  background-color: color-mix(
-    in srgb,
-    var(--background-color),
-    transparent 50%
-  );
+  background-color: color-mix(in srgb, #000, transparent 50%);
   top: 0;
   left: 0;
   right: 0;
@@ -4767,6 +4749,7 @@ section,
   background: var(--contrast-color);
   background-color: none;
   border: none;
+  color: var(--nav-dropdown-hover-color);
   transition: 0.3s all ease;
 }
 
