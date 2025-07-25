@@ -713,6 +713,40 @@ h6 {
   opacity: 1;
 }
 
+/* WhatsApp Button */
+.scroll-whatsapp {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 70px;
+  z-index: 99999;
+  background-color: #059652;
+  border: 1px solid #ffffff57;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-whatsapp i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.scroll-whatsapp:hover {
+  background-color: #059652b9;
+}
+
+.scroll-whatsapp.active {
+  visibility: visible;
+  opacity: 1;
+}
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -1387,193 +1421,178 @@ section,
 .features .tab-pane p:last-child {
   margin-bottom: 0;
 }
-
 /*--------------------------------------------------------------
-# Projects Section
+# Project Details Section
 --------------------------------------------------------------*/
-.projects .portfolio-filters {
-  padding: 0;
-  margin: 0 auto 20px auto;
-  list-style: none;
-  text-align: center;
+.project-details .portfolio-details-slider img {
+  width: 100%;
 }
 
-.projects .portfolio-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 10px;
-  line-height: 1;
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
+.project-details .swiper-wrapper {
+  height: auto;
 }
 
-.projects .portfolio-filters li:hover,
-.projects .portfolio-filters li.filter-active {
-  color: var(--accent-color);
+.project-details .swiper-button-prev,
+.project-details .swiper-button-next {
+  width: 48px;
+  height: 48px;
 }
 
-.projects .portfolio-filters li:first-child {
-  margin-left: 0;
+.project-details .swiper-button-prev:after,
+.project-details .swiper-button-next:after {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
 }
 
-.projects .portfolio-filters li:last-child {
-  margin-right: 0;
+.project-details .swiper-button-prev:hover:after,
+.project-details .swiper-button-next:hover:after {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 575px) {
-  .projects .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 5px;
+  .project-details .swiper-button-prev,
+  .project-details .swiper-button-next {
+    display: none;
   }
 }
 
-.projects .portfolio-content {
+.project-details .swiper-pagination {
+  margin-top: 20px;
   position: relative;
-  overflow: hidden;
 }
 
-.projects .portfolio-content img {
-  transition: 0.3s;
-}
-
-.projects .portfolio-content .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-}
-
-.projects .portfolio-content .portfolio-info h4 {
-  font-size: 14px;
-  padding: 5px 10px;
-  font-weight: 400;
-  color: #ffffff;
-  display: inline-block;
-  background-color: var(--accent-color);
-}
-
-.projects .portfolio-content .portfolio-info p {
-  position: absolute;
-  bottom: 10px;
-  text-align: center;
-  display: inline-block;
-  left: 0;
-  right: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.projects .portfolio-content .portfolio-info .preview-link,
-.projects .portfolio-content .portfolio-info .details-link {
-  position: absolute;
-  left: calc(50% - 40px);
-  font-size: 26px;
-  top: calc(50% - 14px);
-  color: #fff;
-  transition: 0.3s;
-  line-height: 1.2;
-}
-
-.projects .portfolio-content .portfolio-info .preview-link:hover,
-.projects .portfolio-content .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-}
-
-.projects .portfolio-content .portfolio-info .details-link {
-  left: 50%;
-  font-size: 34px;
-  line-height: 0;
-}
-
-.projects .portfolio-content:hover .portfolio-info {
+.project-details .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
   opacity: 1;
 }
 
-.projects .portfolio-content:hover img {
-  transform: scale(1.1);
-}
-
-/*--------------------------------------------------------------
-# Recent Blog Posts Section
---------------------------------------------------------------*/
-.recent-blog-posts .post-item {
-  background: var(--surface-color);
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-.recent-blog-posts .post-item .post-img img {
-  transition: 0.5s;
-}
-
-.recent-blog-posts .post-item .post-date {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.project-details .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
-  color: var(--contrast-color);
-  text-transform: uppercase;
-  font-size: 13px;
-  padding: 6px 12px;
-  font-weight: 500;
 }
 
-.recent-blog-posts .post-item .post-content {
-  padding: 30px;
-}
-
-.recent-blog-posts .post-item .post-title {
-  color: var(--heading-color);
-  font-size: 20px;
+.project-details .portfolio-info h3 {
+  font-size: 22px;
   font-weight: 700;
-  transition: 0.3s;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
 }
 
-.recent-blog-posts .post-item .meta i {
-  font-size: 16px;
-  color: var(--accent-color);
+.project-details .portfolio-info h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
 }
 
-.recent-blog-posts .post-item .meta span {
+.project-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
   font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-.recent-blog-posts .post-item hr {
-  color: color-mix(in srgb, var(--default-color), transparent 80%);
-  margin: 20px 0;
-}
-
-.recent-blog-posts .post-item .readmore {
+.project-details .portfolio-info ul li {
   display: flex;
-  align-items: center;
-  font-weight: 600;
-  line-height: 1;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.project-details .portfolio-info ul strong {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 14px;
+}
+
+.project-details .portfolio-info .btn-visit {
+  padding: 8px 40px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50px;
   transition: 0.3s;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.recent-blog-posts .post-item .readmore i {
+.project-details .portfolio-info .btn-visit:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.project-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.project-details .portfolio-description p {
+  padding: 0;
+}
+
+.project-details .portfolio-description .testimonial-item {
+  padding: 30px 30px 0 30px;
+  position: relative;
+  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  margin-bottom: 50px;
+}
+
+.project-details .portfolio-description .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 50px;
+  border: 6px solid var(--background-color);
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.project-details .portfolio-description .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0 5px 0;
+  padding-top: 20px;
+}
+
+.project-details .portfolio-description .testimonial-item h4 {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.project-details .portfolio-description .testimonial-item .quote-icon-left,
+.project-details .portfolio-description .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
   line-height: 0;
-  margin-left: 6px;
-  font-size: 16px;
 }
 
-.recent-blog-posts .post-item:hover .post-title,
-.recent-blog-posts .post-item:hover .readmore {
-  color: var(--accent-color);
+.project-details .portfolio-description .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
 }
 
-.recent-blog-posts .post-item:hover .post-img img {
-  transform: scale(1.1);
+.project-details .portfolio-description .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.project-details .portfolio-description .testimonial-item p {
+  font-style: italic;
+  margin: 0 0 15px 0 0 0;
+  padding: 0;
 }
 /*--------------------------------------------------------------
 # About Section
