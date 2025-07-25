@@ -4703,7 +4703,7 @@ section,
 
 .services-2 .service-item:before {
   content: "";
-  background-color: color-mix(in srgb, #000, transparent 50%);
+  background-color: color-mix(in srgb, #000, transparent 30%);
   top: 0;
   left: 0;
   right: 0;
