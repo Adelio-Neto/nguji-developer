@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nome": "Desenvolvimento Avançado em JavaScript",
+    "descricao": "Curso completo para aprofundar seus conhecimentos em JavaScript.",
+    "categoria": "Programação",
+    "nivel": "Intermediário",
+    "duracao": 15,
+    "duracaoTexto": "15 horas",
+    "preco": 75650,
+    "imagem": "assets/img/cursos/curso-1.jpg",
+    "badge": "Mais Vendido",
+    "estudantes": 1245,
+    "avaliacao": 4.8,
+    "totalAvaliacoes": 89
+  },
+  {
+    "id": 2,
+    "nome": "Fundamentos de Design UI/UX",
+    "descricao": "Curso para iniciantes no mundo do design de interfaces.",
+    "categoria": "Design",
+    "nivel": "Iniciante",
+    "duracao": 8,
+    "duracaoTexto": "8 horas",
+    "preco": 0,
+    "imagem": "assets/img/cursos/courses-7.webp",
+    "badge": "Gratuito",
+    "estudantes": 2891,
+    "avaliacao": 4.6,
+    "totalAvaliacoes": 156
+  }
+]
