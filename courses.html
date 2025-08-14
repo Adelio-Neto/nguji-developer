@@ -261,7 +261,7 @@ function renderizarCursos() {
           <div class="course-image">
             <img src="${curso.imagem}" alt="${curso.nome}" class="img-fluid" />
             ${curso.badge ? `<div class="course-badge">${curso.badge}</div>` : ''}
-            ${curso.preco > 0 ? `<div class="course-price">Kz ${curso.preco.toLocaleString()}</div>` : ''}
+            <div class="course-price"> ${curso.preco.toLocaleString()} Kz</div>
           </div>
           <div class="course-content">
             <div class="course-meta">
@@ -275,7 +275,7 @@ function renderizarCursos() {
               <div class="stat"><i class="bi bi-people"></i> <span>${curso.estudantes.toLocaleString()} estudantes</span></div>
               <div class="rating">${renderizarEstrelas(curso.avaliacao)} <span>${curso.avaliacao} (${curso.totalAvaliacoes} avaliações)</span></div>
             </div>
-            <a href="#" class="btn-course">${curso.preco > 0 ? 'Inscreva-se agora' : 'Iniciar Curso Gratuito'}</a>
+            <a href="#" class="btn-course">Inscreva-se Agora – Vagas Limitadas!</a>
           </div>
         </div>
       </div>
