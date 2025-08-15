@@ -838,7 +838,7 @@ section,
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   position: relative;
 }
@@ -846,7 +846,7 @@ section,
 .section-title h2:before,
 .section-title h2:after {
   content: "";
-  width: 50px;
+  width: 40px;
   height: 2px;
   background: var(--accent-color);
   display: inline-block;
