@@ -268,8 +268,9 @@ function renderizarCursos() {
               <span class="category">${curso.categoria}</span>
               <span class="level">${curso.nivel}</span>
             </div>
-            <h3>${curso.nome}</h3>
-            <p>${curso.descricao}</p>
+            <h3 style="margin-bottom: px;">${curso.nome}</h3>
+            <p  style="margin-bottom: -6px;">${curso.subtitulo}</p>
+            <p style="margin-bottom: -3px;margin-left: 10px;">${curso.descricao}</p>
             <div class="course-stats">
               <div class="stat"><i class="bi bi-clock"></i> <span>${curso.duracaoTexto}</span></div>
               <div class="stat"><i class="bi bi-people"></i> <span>${curso.estudantes.toLocaleString()} estudantes</span></div>

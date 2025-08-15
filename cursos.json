@@ -2,7 +2,8 @@
   {
     "id": 1,
     "nome": " AutoCAD Clássico",
-    "descricao": "Domine o Desenho Técnico Tradicional <p> Linhas e cotas perfeitas <br>Padrões internacionais ",
+    "subtitulo": "Domine o Desenho Técnico Tradicional ",
+    "descricao": " Linhas e cotas perfeitas <br>Padrões internacionais ",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
@@ -17,7 +18,8 @@
   {
     "id": 2,
     "nome": "Croquis de Localização",
-    "descricao": "Projete Terrenos com Precisão Profissional<p> Modelagem 3D avançada <br> Croquis legível em minutos</p>",
+    "subtitulo": "Projete Terrenos com Precisão Profissional",
+    "descricao": " Modelagem 3D avançada <br> Croquis legível em minutos",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 8,
@@ -32,7 +34,8 @@
   {
     "id": 3,
     "nome": "CYPECAD ",
-    "descricao": "Estruturas Seguras em Minutos<p> Cálculo automático de cargas <br>Relatórios detalhados</p>",
+    "subtitulo": "Estruturas Seguras em Minutos",
+    "descricao": "Cálculo automático de cargas <br>Relatórios detalhados",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
@@ -47,7 +50,8 @@
   {
     "id": 4,
     "nome": "DIREÇÃO TECNICA DE OBRA ",
-    "descricao": "Lidere Sua Equipe com Confiança<p>Normas e laudos atualizados <br>Gestão de compliance</p>",
+    "subtitulo": "Lidere Sua Equipe com Confiança",
+    "descricao": "Normas e laudos atualizados <br>Gestão de compliance",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 8,
@@ -62,7 +66,8 @@
   {
     "id": 5,
     "nome": "GESTÃO DE PROJECTOS ",
-    "descricao": "Metodologias Ágeis em Engenharia<p> Scrum, Kanban aplicados <br>Entregas dentro do prazo</p>",
+    "subtitulo": "Metodologias Ágeis em Engenharia",
+    "descricao": " Scrum, Kanban aplicados <br>Entregas dentro do prazo",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
@@ -77,7 +82,8 @@
   {
     "id": 6,
     "nome": "HIGIENE E SEGURANÇA NO TRABALHO",
-    "descricao": "Obras Seguras, Sem Acidentes<p>Normas NR completas <br >Checklists prontos</p>",
+    "subtitulo": "Obras Seguras, Sem Acidentes",
+    "descricao": "Normas NR completas <br >Checklists prontos",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 8,
@@ -92,7 +98,8 @@
   {
     "id": 7,
     "nome": "LUMION ",
-    "descricao": "Visualize Seus Projetos com Realismo<p>Render em tempo real <br> Materiais e luzes realistas</p>",
+    "subtitulo": "Visualize Seus Projetos com Realismo",
+    "descricao": "Render em tempo real <br> Materiais e luzes realistas",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
@@ -107,7 +114,8 @@
   {
     "id": 8,
     "nome": "MEDIÇÃO E ORÇAMENTO DE OBRAS ",
-    "descricao": "Orçamentos Preciso e Lucrativos<p> Planilhas automatizadas <br>Controle de custos eficaz</p>",
+    "subtitulo": "Orçamentos Precisos e Lucrativos",
+    "descricao": "Planilhas automatizadas <br>Controle de custos eficaz",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 8,
@@ -122,7 +130,8 @@
   {
     "id": 9,
     "nome": "PREPARADOR DE OBRAS ",
-    "descricao": "Planeje Obras sem Surpresas<p> Cronograma executivo <br>Logística otimizada</p>",
+    "subtitulo": "Planeje Obras sem Surpresas",
+    "descricao": " Cronograma executivo <br>Logística otimizada",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
@@ -137,7 +146,8 @@
   {
     "id": 10,
     "nome": "Revit ",
-    "descricao": "BIM Eficiente para Projetos Complexos<p>Coordenação multidisciplinar <br> Redução de retrabalho</p>",
+    "subtitulo": "BIM Eficiente para Projetos Complexos",
+    "descricao": "Coordenação multidisciplinar <br> Redução de retrabalho",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 8,
@@ -152,7 +162,8 @@
   {
     "id": 11,
     "nome": "SKETCHUP ",
-    "descricao": "Modelagem 3D Rápida e Intuitiva<p>Protótipos em horas <br> Render leve e dinâmico</p>",
+    "subtitulo": "Modelagem 3D Rápida e Intuitiva",
+    "descricao": "Protótipos em horas <br> Render leve e dinâmico",
     "categoria": "Manhã",
     "nivel": "Tarde",
     "duracao": 15,
