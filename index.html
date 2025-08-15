@@ -492,150 +492,7 @@
                 <i class="bi bi-arrow-right-short"></i>
               </button>
 
-              <div class="swiper-wrapper">
-                <!-- Slide 1 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Fiscalização de Obras Públicas
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-1.jpg"
-                      alt="Obras Públicas"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Formação Técnico-Profissional
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-2.jpg"
-                      alt="Formação Técnica"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Planos de Fiscalização Ambiental
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-3.jpg"
-                      alt="Fiscalização Ambiental"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Estudo de Drenagem Urbana
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-4.jpg"
-                      alt="Drenagem Urbana"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-
-                <!-- Slide 5 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Estabilização de Ravinas
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-2.jpg"
-                      alt="Ravinas"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-
-                <!-- Slide 6 -->
-                <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                          Consultoria em Construção Civil
-                        </h2>
-                      </a>
-                      <a
-                        href="project.html"
-                        class="btn btn-outline-primary mt-2"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                    <img
-                      src="assets/img/constructions-3.jpg"
-                      alt="Construção Civil"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
+              <div class="swiper-wrapper" id="projetos-container">
               </div>
 
               <div class="swiper-pagination"></div>
@@ -1553,5 +1410,41 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/script.js"></script>
+    <script>
+fetch('projetos.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('projetos-container');
+    data.forEach(projeto => {
+      const card = `
+              <div class="swiper-slide">
+                  <div class="service-item">
+                    <div class="service-item-contents">
+                      <a href="#">
+                        <span class="service-item-category">Serviço</span>
+                        <h2 class="service-item-title">
+                         ${projeto.nome}
+                        </h2>
+                      </a>
+                      <a
+                        href="0#"
+                        class="btn btn-outline-primary mt-2"
+                        onclick="verProjeto(${projeto.id})"
+                        >Ver Detalhes</a
+                      >
+                    </div>
+                     <img src="${projeto.imagens[0]}" class="card-img-top" alt="${projeto.nome}">
+                  </div>
+                </div>
+      `;
+      container.innerHTML += card;
+    });
+  });
+
+function verProjeto(id) {
+  localStorage.setItem('projetoId', id);
+  window.location.href = 'projeto.html';
+}
+</script>
   </body>
 </html>
