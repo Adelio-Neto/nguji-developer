@@ -102,25 +102,35 @@
       <section id="project-details" class="project-details section">
         <div class="container" data-aos="fade-up">
           <div class="portfolio-details-slider swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "navigation": {
-                  "nextEl": ".swiper-button-next",
-                  "prevEl": ".swiper-button-prev"
-                },
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".js-custom-next",
+                    "prevEl": ".js-custom-prev"
+                  },
+                  "breakpoints": {
+                    "320": {
+                      "slidesPerView": 1,
+                      "spaceBetween": 40
+                    },
+                    "1200": {
+                      "slidesPerView": 2,
+                      "spaceBetween": 40
+                    }
+                  }
                 }
-              }
-            </script>
+              </script>
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
                 <img src="assets/img/projects/construction-1.jpg" alt="" />
@@ -134,13 +144,13 @@
                 <img src="assets/img/projects/construction-3.jpg" alt="" />
               </div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev navigation-prev js-custom-prev"></div>
+            <div class="swiper-button-next navigation-next js-custom-next"></div>
             <div class="swiper-pagination"></div>
           </div>
 
           <div class="row justify-content-between gy-4 mt-4">
-            <div class="col-lg-8" data-aos="fade-up">
+            <div class="col-lg-8">
               <div class="portfolio-description">
                 <h2>Residência Horizonte</h2>
                 <p>
