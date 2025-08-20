@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Email de destino
-    $destinatario = "luisnetoadelio@gmail.com";
+    $destinatario = "geral@nguji.ao";
 
     // Assunto e corpo vindos do JS
     $assunto = $data["assunto"] ?? "Nova inscrição";

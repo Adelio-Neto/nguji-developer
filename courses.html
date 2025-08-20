@@ -347,7 +347,7 @@
               <p id="cursoDescricaoModal">Descrição do curso</p>
             </div>
 
-            <form id="inscricaoForm" data-form-action="enviar.php">
+            <form id="inscricaoForm">
               <div class="row">
                 <div class="col-12 mb-3">
                   <label for="curso" class="form-label">Curso</label>
@@ -608,7 +608,7 @@
                         </div>
                         <h3>${curso.nome}</h3>
                         <p>${curso.subtitulo}</p>
-                        <p>${curso.descricao}</p>
+                        <p style="margin-top: -2rem;margin-left:1rem;">${curso.descricao.join('<br>')}</p>
                         <div class="course-stats">
                           <div class="stat"><i class="bi bi-clock"></i> <span>${curso.duracaoTexto}</span></div>
                           <div class="stat"><i class="bi bi-people"></i> <span>${curso.estudantes.toLocaleString()} estudantes</span></div>

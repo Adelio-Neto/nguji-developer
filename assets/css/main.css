@@ -4816,6 +4816,7 @@ section,
   background: #fff;
   color: white;
   border-bottom: none;
+  z-index: 1111111111111111111;
 }
 
 .modal-header .btn-close {
@@ -4845,8 +4846,8 @@ section,
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #4facfe;
-  box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.2rem rgba(251, 254, 79, 0.205);
 }
 
 .curso-info {
@@ -4926,8 +4927,8 @@ section,
 }
 
 .form-check-input:checked {
-  background-color: #4facfe;
-  border-color: #4facfe;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
 .modal-body {
