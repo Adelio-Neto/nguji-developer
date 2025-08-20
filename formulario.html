@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal de Inscrição</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Exemplo de Cards de Cursos para demonstração -->
+    <div class="container mt-5">
+      <h2 class="text-center mb-5">Nossos Cursos</h2>
+      <div class="row" id="coursesContainer">
+        <!-- Os cards serão inseridos aqui via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Modal de Inscrição -->
+    <div
+      class="modal fade"
+      id="inscricaoModal"
+      tabindex="-1"
+      aria-labelledby="inscricaoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inscricaoModalLabel">
+              <i class="bi bi-journal-text me-2"></i>
+              Ficha de Inscrição 2025
+            </h5>
+            <button
+              type="button"
+              class="btn-close text-dark"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="curso-info text-dark" id="cursoInfoModal">
+              <h5 id="cursoNomeModal" class="text-dark">Curso Selecionado</h5>
+              <p id="cursoDescricaoModal">Descrição do curso</p>
+            </div>
+
+            <form id="inscricaoForm">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="curso" class="form-label">Curso</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="curso"
+                    name="curso"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="nomeCompleto" class="form-label"
+                    >Nome Completo *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeCompleto"
+                    name="nomeCompleto"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Sexo *</label>
+                  <div class="radio-group">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="sexo"
+                        id="feminino"
+                        value="F"
+                        required
+                      />
+                      <label class="form-check-label" for="feminino"
+                        >Feminino</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="sexo"
+                        id="masculino"
+                        value="M"
+                        required
+                      />
+                      <label class="form-check-label" for="masculino"
+                        >Masculino</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="idade" class="form-label">Idade *</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="idade"
+                    name="idade"
+                    min="16"
+                    max="100"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="bilheteIdentidade" class="form-label"
+                    >Bilhete de Identidade Nº *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bilheteIdentidade"
+                    name="bilheteIdentidade"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="telefone" class="form-label"
+                    >Contacto Telefónico *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefone"
+                    name="telefone"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">E-mail *</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="provincia" class="form-label"
+                    >Província e cidade onde reside *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="provincia"
+                    name="provincia"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="habilitacoes" class="form-label"
+                    >Habilitações Literárias *</label
+                  >
+                  <select
+                    class="form-select"
+                    id="habilitacoes"
+                    name="habilitacoes"
+                    required
+                  >
+                    <option value="">Selecione suas habilitações</option>
+                    <option value="Ensino Primário">Ensino Primário</option>
+                    <option value="1º Ciclo do Ensino Secundário">
+                      1º Ciclo do Ensino Secundário
+                    </option>
+                    <option value="2º Ciclo do Ensino Secundário">
+                      2º Ciclo do Ensino Secundário
+                    </option>
+                    <option value="Ensino Médio">Ensino Médio</option>
+                    <option value="Ensino Superior">Ensino Superior</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="instituicao" class="form-label"
+                    >Instituição de Trabalho/Académica</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="instituicao"
+                    name="instituicao"
+                    rows="3"
+                    placeholder="Descreva a sua instituição de trabalho ou académica atual"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="obs-section">
+                <h6>
+                  <i class="bi bi-info-circle me-2"></i>Documentos Necessários:
+                </h6>
+                <p>• Cópia de B.I.</p>
+                <p>• Cópia de Certificado Habilitações ou declaração.</p>
+                <p>
+                  <strong>O Curso só inicia a partir dos 15 inscritos</strong>
+                  (com exceção dos cursos práticos que podem iniciar com apenas
+                  <strong>10 inscritos</strong>).
+                </p>
+              </div>
+
+              <div class="valor-info">
+                <i class="bi bi-cash-coin me-2"></i>
+                <strong>Valor inscrição: 5.000,00 Kz (não reembolsável)</strong>
+              </div>
+            </form>
+
+            <div class="success-message d-none" id="successMessage">
+              <h5>
+                <i class="bi bi-check-circle me-2"></i>Dados enviados com
+                sucesso!
+              </h5>
+              <p>
+                Aguarde pela nossa ligação. Entraremos em contacto em breve para
+                confirmar a sua inscrição.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              <i class="bi bi-x-circle me-2"></i>Cancelar
+            </button>
+            <button type="button" class="btn btn-submit" id="btnEnviar">
+              <i class="bi bi-send me-2"></i>Enviar Inscrição
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Dados dos cursos (exemplo baseado no seu sistema)
+      const cursosData = {
+        planeamento_gestao: {
+          nome: "Planeamento e Gestão Orçamental",
+          categoria: "Gestão",
+          nivel: "Intermediário",
+          descricao:
+            "Aprenda a planear e gerir orçamentos de forma eficiente para projetos e empresas.",
+          preco: 25000,
+          duracao: "40 horas",
+          estudantes: 150,
+          imagem:
+            "https://via.placeholder.com/400x200?text=Planeamento+e+Gestao",
+        },
+        excel_avancado: {
+          nome: "Excel Avançado",
+          categoria: "Informática",
+          nivel: "Avançado",
+          descricao:
+            "Domine as funcionalidades avançadas do Microsoft Excel para análise de dados profissional.",
+          preco: 20000,
+          duracao: "30 horas",
+          estudantes: 200,
+          imagem: "https://via.placeholder.com/400x200?text=Excel+Avancado",
+        },
+        gestao_projetos: {
+          nome: "Gestão de Projectos",
+          categoria: "Gestão",
+          nivel: "Intermediário",
+          descricao:
+            "Aprenda metodologias modernas de gestão de projetos para aumentar a eficiência.",
+          preco: 30000,
+          duracao: "50 horas",
+          estudantes: 120,
+          imagem: "https://via.placeholder.com/400x200?text=Gestao+de+Projetos",
+        },
+        "3ds_max": {
+          nome: "3DS MAX e CORONA RENDER",
+          categoria: "Design",
+          nivel: "Avançado",
+          descricao:
+            "Dominação completa do 3DS MAX com renderização profissional usando Corona Render.",
+          preco: 40000,
+          duracao: "60 horas",
+          estudantes: 80,
+          imagem: "https://via.placeholder.com/400x200?text=3DS+MAX",
+        },
+      };
+
+      // Função para carregar os cards de cursos
+      function carregarCards() {
+        const container = document.getElementById("coursesContainer");
+
+        Object.keys(cursosData).forEach((cursoId) => {
+          const curso = cursosData[cursoId];
+
+          const cardHTML = `
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="${curso.imagem}" alt="${
+            curso.nome
+          }" class="img-fluid">
+                        <div class="course-price">${curso.preco.toLocaleString()} Kz</div>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta mb-3">
+                            <span class="category">${curso.categoria}</span>
+                            <span class="level">${curso.nivel}</span>
+                        </div>
+                        <h4 class="mb-2">${curso.nome}</h4>
+                        <p class="mb-3">${curso.descricao}</p>
+                        <div class="course-stats mb-3">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>${
+                                  curso.duracao
+                                } • 
+                                <i class="bi bi-people me-1"></i>${
+                                  curso.estudantes
+                                } estudantes
+                            </small>
+                        </div>
+                        <button class="btn btn-course" onclick="abrirModal('${cursoId}')">
+                            Inscreva-se Agora – Vagas Limitadas!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+          container.innerHTML += cardHTML;
+        });
+      }
+
+      // Função para abrir modal com dados do curso
+      function abrirModal(cursoId) {
+        const curso = cursosData[cursoId];
+        if (!curso) return;
+
+        // Preencher informações do curso na modal
+        document.getElementById("cursoNomeModal").textContent = curso.nome;
+        document.getElementById("cursoDescricaoModal").textContent =
+          curso.descricao;
+        document.getElementById("curso").value = curso.nome;
+
+        // Resetar formulário
+        document.getElementById("inscricaoForm").reset();
+        document.getElementById("curso").value = curso.nome; // Manter curso selecionado
+        document.getElementById("successMessage").classList.add("d-none");
+        document.getElementById("inscricaoForm").classList.remove("d-none");
+
+        // Abrir modal
+        const modal = new bootstrap.Modal(
+          document.getElementById("inscricaoModal")
+        );
+        modal.show();
+      }
+
+      // Função para enviar dados
+      function enviarDados() {
+        const form = document.getElementById("inscricaoForm");
+        const formData = new FormData(form);
+        const dados = Object.fromEntries(formData.entries());
+
+        // Validar campos obrigatórios
+        const camposObrigatorios = [
+          "curso",
+          "nomeCompleto",
+          "sexo",
+          "idade",
+          "bilheteIdentidade",
+          "telefone",
+          "email",
+          "provincia",
+          "habilitacoes",
+        ];
+
+        for (let campo of camposObrigatorios) {
+          if (!dados[campo]) {
+            alert(
+              `Por favor, preencha o campo: ${campo
+                .replace(/([A-Z])/g, " $1")
+                .toLowerCase()}`
+            );
+            return;
+          }
+        }
+
+        // Simular envio
+        const btnEnviar = document.getElementById("btnEnviar");
+        const textoOriginal = btnEnviar.innerHTML;
+
+        btnEnviar.innerHTML =
+          '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
+        btnEnviar.disabled = true;
+
+        // Simular delay de envio
+        setTimeout(() => {
+          // Preparar dados para email
+          const assunto = `Nova Inscrição - ${dados.curso}`;
+          const corpo = formatarEmailCorpo(dados);
+
+          // Aqui você conectaria com seu sistema de envio de email
+          console.log("Enviando email:", { assunto, corpo, dados });
+
+          // Mostrar mensagem de sucesso
+          document.getElementById("inscricaoForm").classList.add("d-none");
+          document.getElementById("successMessage").classList.remove("d-none");
+
+          // Resetar botão
+          btnEnviar.innerHTML = textoOriginal;
+          btnEnviar.disabled = false;
+
+          // Fechar modal após 3 segundos
+          setTimeout(() => {
+            bootstrap.Modal.getInstance(
+              document.getElementById("inscricaoModal")
+            ).hide();
+          }, 3000);
+        }, 2000);
+      }
+
+      // Função para formatar corpo do email
+      function formatarEmailCorpo(dados) {
+        return `
+NOVA INSCRIÇÃO RECEBIDA
+
+CURSO: ${dados.curso}
+
+DADOS PESSOAIS:
+Nome Completo: ${dados.nomeCompleto}
+Sexo: ${dados.sexo === "F" ? "Feminino" : "Masculino"}
+Idade: ${dados.idade} anos
+Bilhete de Identidade: ${dados.bilheteIdentidade}
+
+CONTACTOS:
+Telefone: ${dados.telefone}
+Email: ${dados.email}
+Província/Cidade: ${dados.provincia}
+
+FORMAÇÃO:
+Habilitações Literárias: ${dados.habilitacoes}
+Instituição: ${dados.instituicao || "Não informado"}
+
+---
+Inscrição enviada através do formulário online em ${new Date().toLocaleString(
+          "pt-AO"
+        )}
+    `;
+      }
+
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        carregarCards();
+
+        // Event listener para o botão enviar
+        document
+          .getElementById("btnEnviar")
+          .addEventListener("click", enviarDados);
+
+        // Event listener para submit do form (Enter)
+        document
+          .getElementById("inscricaoForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            enviarDados();
+          });
+      });
+    </script>
+  </body>
+</html>

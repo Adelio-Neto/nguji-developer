@@ -1210,8 +1210,8 @@
                   <div class="contact-text">
                     <h4>Email</h4>
                     <p>
-                      <a href="mailto:seuemail@exemplo.com"
-                        >seuemail@exemplo.com</a
+                      <a href="mailto:geral@nguji.ao"
+                        >geral@nguji.ao</a
                       >
                     </p>
                   </div>
@@ -1223,7 +1223,7 @@
                   </div>
                   <div class="contact-text">
                     <h4>Telemóveis</h4>
-                    <p>+244 945 742 502</p>
+                    <p>+244 948 853 909</p>
                   </div>
                 </div>
 
@@ -1303,12 +1303,7 @@
 
                   <div class="form-submit">
                     <button type="submit">Enviar Mensagem</button>
-                    <div class="social-links">
-                    
-                      <a href="#"><i class="bi bi-facebook"></i></a>
-                      <a href="#"><i class="bi bi-instagram"></i></a>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
+  
                   </div>
                 </form>
               </div>
@@ -1334,9 +1329,9 @@
               <p>Município de Belas - Luanda, ANGOLA</p>
               <p class="mt-3">
                 <strong>Telemóveis:</strong>
-                <span>+244 945 742 502 / +244 948 853 909</span>
+                <span>+244 948 853 909</span>
               </p>
-              <p><strong>Email:</strong> <span>seuemail@exemplo.com</span></p>
+              <p><strong>Email:</strong> <span>geral@nguji.ao </span></p>
             </div>
           </div>
 
@@ -1378,7 +1373,7 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Redes Sociais</h4>
             <div class="social-links d-flex mt-4">
-              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.facebook.com/ngujidevelopment"><i class="bi bi-facebook"></i></a>
               <a href="#"><i class="bi bi-instagram"></i></a>
               <a href="#"><i class="bi bi-linkedin"></i></a>
             </div>
@@ -1392,10 +1387,9 @@
       </div>
     </footer>
 
-
     <!-- Scroll Top -->
     <a
-      href="https://wa.me/SEUNUMEROAQUI"
+      href="https://wa.me/948853909"
       class="scroll-whatsapp"
       target="_blank"
       aria-label="WhatsApp"
@@ -1426,40 +1420,40 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/script.js"></script>
     <script>
-fetch('projetos.json')
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById('projetos-container');
-    data.forEach(projeto => {
-      const card = `
-              <div class="swiper-slide">
-                  <div class="service-item">
-                    <div class="service-item-contents">
-                      <a href="#">
-                        <span class="service-item-category">Serviço</span>
-                        <h2 class="service-item-title">
-                         ${projeto.nome}
-                        </h2>
-                      </a>
-                      <a
-                        href="0#"
-                        class="btn btn-outline-primary mt-2"
-                        onclick="verProjeto(${projeto.id})"
-                        >Ver Detalhes</a
-                      >
-                    </div>
-                     <img src="${projeto.imagens[0]}" class="card-img-top" alt="${projeto.nome}">
-                  </div>
-                </div>
-      `;
-      container.innerHTML += card;
-    });
-  });
+      fetch('projetos.json')
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById('projetos-container');
+          data.forEach(projeto => {
+            const card = `
+                    <div class="swiper-slide">
+                        <div class="service-item">
+                          <div class="service-item-contents">
+                            <a href="#">
+                              <span class="service-item-category">Serviço</span>
+                              <h2 class="service-item-title">
+                              ${projeto.nome}
+                              </h2>
+                            </a>
+                            <a
+                              href="javascript:void(0)"
+                              class="btn btn-outline-primary mt-2"
+                              onclick="verProjeto(${projeto.id})"
+                              >Ver Detalhes</a
+                            >
+                          </div>
+                          <img src="${projeto.imagens[0]}" class="card-img-top" alt="${projeto.nome}">
+                        </div>
+                      </div>
+            `;
+            container.innerHTML += card;
+          });
+        });
 
-function verProjeto(id) {
-  localStorage.setItem('projetoId', id);
-  window.location.href = 'projeto.html';
-}
-</script>
+      function verProjeto(id) {
+        localStorage.setItem('projetoId', id);
+        window.location.href = 'project.html';
+       }
+    </script>
   </body>
 </html>

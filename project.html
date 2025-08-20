@@ -101,7 +101,76 @@
       <!-- Project Details Section -->
       <section id="project-details" class="project-details section">
         <div class="container" data-aos="fade-up">
-          <div class="portfolio-details-slider swiper init-swiper">
+<div class="portfolio-details-slider swiper init-swiper">
+  <script type="application/json" class="swiper-config">
+    {
+      "loop": true,
+      "speed": 600,
+      "autoplay": {
+        "delay": 5000
+      },
+      "slidesPerView": "auto",
+      "pagination": {
+        "el": ".swiper-pagination",
+        "type": "bullets",
+        "clickable": true
+      },
+      "navigation": {
+        "nextEl": ".js-custom-next",
+        "prevEl": ".js-custom-prev"
+      },
+      "breakpoints": {
+        "320": {
+          "slidesPerView": 1,
+          "spaceBetween": 40
+        },
+        "1200": {
+          "slidesPerView": 2,
+          "spaceBetween": 40
+        }
+      }
+    }
+  </script>
+
+        <div class="swiper-wrapper align-items-center" id="swiper-images">
+          <!-- Imagens vão ser inseridas aqui pelo JS -->
+        </div>
+
+        <div class="swiper-button-prev navigation-prev js-custom-prev"></div>
+        <div class="swiper-button-next navigation-next js-custom-next"></div>
+        <div class="swiper-pagination"></div>
+  </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2 id="projeto-nome"></h2>
+              <p id="projeto-descricao"></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Informações do Projeto</h3>
+              <ul>
+                <li><strong>Categoria</strong> <span id="projeto-categoria"></span></li>
+                <li><strong>Cliente</strong> <span id="projeto-cliente"></span></li>
+                <li><strong>Data do Projeto</strong> <span id="projeto-data"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      <!-- /Project Details Section -->
+    </main>
+
+
+          <!-- Seção Portfólio de Serviços -->
+      <section id="services-2" class="services-2 section bg-light">
+        <div class="services-carousel-wrap">
+          <div class="container">
+            <div class="swiper init-swiper">
               <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
@@ -125,61 +194,29 @@
                       "spaceBetween": 40
                     },
                     "1200": {
-                      "slidesPerView": 2,
+                      "slidesPerView": 3,
                       "spaceBetween": 40
                     }
                   }
                 }
               </script>
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide">
-                <img src="assets/img/projects/01.png" alt="" />
+
+              <button class="navigation-prev js-custom-prev">
+                <i class="bi bi-arrow-left-short"></i>
+              </button>
+              <button class="navigation-next js-custom-next">
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+
+              <div class="swiper-wrapper" id="projetos-container">
               </div>
 
-              <div class="swiper-slide">
-                <img src="assets/img/projects/01.1.png" alt="" />
-              </div>
-
-  
-            </div>
-            <div class="swiper-button-prev navigation-prev js-custom-prev"></div>
-            <div class="swiper-button-next navigation-next js-custom-next"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-          <div class="row justify-content-between gy-4 mt-4">
-            <div class="col-lg-8">
-              <div class="portfolio-description">
-                <h2>Residência Horizonte</h2>
-                <p>
-                  Este projeto explora a integração entre o ambiente construído
-                  e a paisagem natural, utilizando linhas horizontais marcantes
-                  e grandes aberturas envidraçadas para valorizar a vista.
-                </p>
-                <p>
-                  Os materiais escolhidos, como concreto aparente, madeira
-                  natural e vidro, reforçam a proposta de um espaço
-                  contemporâneo, acolhedor e em diálogo com o entorno. Cada
-                  detalhe foi pensado para unir estética e funcionalidade.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-lg-3" >
-              <div class="portfolio-info">
-                <h3>Informações do Projetos</h3>
-                <ul>
-                  <li><strong>Categoria</strong> Consultoria</li>
-                  <li><strong>Cliente</strong> Grapeware</li>
-                  <li><strong> Data do Projeto</strong> 01 Maio, 2025</li>
-                </ul>
-              </div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>
       </section>
-      <!-- /Project Details Section -->
-    </main>
+      <!-- /Seção Portfólio de Serviços -->
     <footer id="footer" class="footer dark-background">
       <div class="container footer-top">
         <div class="row gy-4">
@@ -194,9 +231,9 @@
               <p>Município de Belas - Luanda, ANGOLA</p>
               <p class="mt-3">
                 <strong>Telemóveis:</strong>
-                <span>+244 945 742 502 / +244 948 853 909</span>
+                <span>+244 948 853 909</span>
               </p>
-              <p><strong>Email:</strong> <span>seuemail@exemplo.com</span></p>
+              <p><strong>Email:</strong> <span>geral@nguji.ao </span></p>
             </div>
           </div>
 
@@ -238,7 +275,7 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Redes Sociais</h4>
             <div class="social-links d-flex mt-4">
-              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.facebook.com/ngujidevelopment"><i class="bi bi-facebook"></i></a>
               <a href="#"><i class="bi bi-instagram"></i></a>
               <a href="#"><i class="bi bi-linkedin"></i></a>
             </div>
@@ -254,7 +291,7 @@
 
     <!-- Scroll Top -->
     <a
-      href="https://wa.me/SEUNUMEROAQUI"
+      href="https://wa.me/948853909"
       class="scroll-whatsapp"
       target="_blank"
       aria-label="WhatsApp"
@@ -284,5 +321,82 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/script.js"></script>
+
+
+<script>
+  fetch('projetos.json')
+    .then(res => res.json())
+    .then(data => {
+      const projetoId = localStorage.getItem('projetoId');
+      const projeto = data.find(p => p.id == projetoId);
+
+      if (projeto) {
+        // Nome e descrição
+        document.getElementById('projeto-nome').textContent = projeto.nome;
+        document.getElementById('projeto-descricao').textContent = projeto.descricao;
+
+        // Informações
+        document.getElementById('projeto-categoria').textContent = projeto.categoria;
+        document.getElementById('projeto-cliente').textContent = projeto.cliente;
+
+        // Formatar data em formato mais legível
+        const dataFormatada = new Date(projeto.data).toLocaleDateString('pt-PT', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        });
+        document.getElementById('projeto-data').textContent = dataFormatada;
+
+        // Imagens no Swiper
+        const swiperWrapper = document.getElementById('swiper-images');
+        projeto.imagens.forEach(img => {
+          const slide = document.createElement('div');
+          slide.classList.add('swiper-slide');
+          slide.innerHTML = `<img src="${img}" alt="${projeto.nome}" />`;
+          swiperWrapper.appendChild(slide);
+        });
+      } else {
+        document.querySelector('.portfolio-description').innerHTML =
+          "<p>Projeto não encontrado.</p>";
+      }
+    });
+</script>
+
+    <script>
+      fetch('projetos.json')
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById('projetos-container');
+          data.forEach(projeto => {
+            const card = `
+                    <div class="swiper-slide">
+                        <div class="service-item">
+                          <div class="service-item-contents">
+                            <a href="#">
+                              <span class="service-item-category">Serviço</span>
+                              <h2 class="service-item-title">
+                              ${projeto.nome}
+                              </h2>
+                            </a>
+                            <a
+                              href="javascript:void(0)"
+                              class="btn btn-outline-primary mt-2"
+                              onclick="verProjeto(${projeto.id})"
+                              >Ver Detalhes</a
+                            >
+                          </div>
+                          <img src="${projeto.imagens[0]}" class="card-img-top" alt="${projeto.nome}">
+                        </div>
+                      </div>
+            `;
+            container.innerHTML += card;
+          });
+        });
+
+      function verProjeto(id) {
+        localStorage.setItem('projetoId', id);
+        window.location.href = 'project.html';
+       }
+    </script>
   </body>
 </html>
