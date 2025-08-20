@@ -226,227 +226,6 @@
   </div>
 </section>
 
-<!-- Script para carregar cursos -->
-    <script>
-            let cursos = [];
-            let cursosFiltrados = [];
-            let paginaAtual = 1;
-            const cursosPorPagina = 6;
-
-            async function carregarCursos() {
-              const res = await fetch('cursos.json');
-              cursos = await res.json();
-              cursosFiltrados = [...cursos];
-              renderizarCursos();
-              atualizarPaginacao();
-            }
-
-            // Renderizar cards de cursos
-            function renderizarCursos() {
-              const container = document.querySelector('.courses-grid .row');
-              container.innerHTML = '';
-
-              const inicio = (paginaAtual - 1) * cursosPorPagina;
-              const fim = inicio + cursosPorPagina;
-              const pagina = cursosFiltrados.slice(inicio, fim);
-
-              if (pagina.length === 0) {
-                container.innerHTML = '<p>Nenhum curso encontrado.</p>';
-                return;
-              }
-
-              pagina.forEach(curso => {
-                container.innerHTML += `
-                  <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="course-card">
-                      <div class="course-image">
-                        <img src="${curso.imagem}" alt="${curso.nome}" class="img-fluid" />
-                        ${curso.badge ? `<div class="course-badge">${curso.badge}</div>` : ''}
-                        <div class="course-price"> ${curso.preco.toLocaleString()} Kz</div>
-                      </div>
-                      <div class="course-content">
-                        <div class="course-meta">
-                          <span class="category">${curso.categoria}</span>
-                          <span class="level">${curso.nivel}</span>
-                        </div>
-                        <h3>${curso.nome}</h3>
-                        <p>${curso.subtitulo}</p>
-                        <p>${curso.descricao}</p>
-                        <div class="course-stats">
-                          <div class="stat"><i class="bi bi-clock"></i> <span>${curso.duracaoTexto}</span></div>
-                          <div class="stat"><i class="bi bi-people"></i> <span>${curso.estudantes.toLocaleString()} estudantes</span></div>
-                        </div>
-                        <a href="#" class="btn-course" onclick="abrirModal('${curso.id}')">
-                          Inscreva-se Agora – Vagas Limitadas!
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                `;
-              });
-            }
-
-            function atualizarPaginacao() {
-              const totalPaginas = Math.ceil(cursosFiltrados.length / cursosPorPagina);
-              const paginacao = document.querySelector('.pagination');
-              paginacao.innerHTML = '';
-
-              paginacao.innerHTML += `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}">
-                <a class="page-link" href="#" onclick="mudarPagina(${paginaAtual - 1})"><i class="bi bi-chevron-left"></i></a>
-              </li>`;
-
-              for (let i = 1; i <= totalPaginas; i++) {
-                paginacao.innerHTML += `<li class="page-item ${i === paginaAtual ? 'active' : ''}">
-                  <a class="page-link" href="#" onclick="mudarPagina(${i})">${i}</a>
-                </li>`;
-              }
-
-              paginacao.innerHTML += `<li class="page-item ${paginaAtual === totalPaginas ? 'disabled' : ''}">
-                <a class="page-link" href="#" onclick="mudarPagina(${paginaAtual + 1})"><i class="bi bi-chevron-right"></i></a>
-              </li>`;
-            }
-
-            function mudarPagina(n) {
-              const totalPaginas = Math.ceil(cursosFiltrados.length / cursosPorPagina);
-              if (n >= 1 && n <= totalPaginas) {
-                paginaAtual = n;
-                renderizarCursos();
-                atualizarPaginacao();
-              }
-            }
-
-            // ---- FILTROS ----
-            function aplicarFiltros() {
-              const categorias = [...document.querySelectorAll('.filter-group:nth-child(1) input:checked')].map(el => el.parentElement.textContent.trim());
-              const niveis = [...document.querySelectorAll('.filter-group:nth-child(2) input:checked')].map(el => el.parentElement.textContent.trim());
-              const duracoes = [...document.querySelectorAll('.filter-group:nth-child(3) input:checked')].map(el => el.parentElement.textContent.trim());
-              const pesquisa = document.querySelector('.search-box input').value.toLowerCase();
-
-              cursosFiltrados = cursos.filter(curso => {
-                let ok = true;
-
-                if (!categorias.includes('Todas as Categorias') && !categorias.includes(curso.categoria)) ok = false;
-                if (!niveis.includes('Todos os Níveis') && !niveis.includes(curso.nivel)) ok = false;
-
-                if (duracoes.length > 0) {
-                  if (duracoes.includes('Menos de 5 horas') && curso.duracao >= 5) ok = false;
-                  if (duracoes.includes('5 a 20 horas') && (curso.duracao < 5 || curso.duracao > 20)) ok = false;
-                  if (duracoes.includes('Mais de 20 horas') && curso.duracao <= 20) ok = false;
-                }
-
-                if (pesquisa && !curso.nome.toLowerCase().includes(pesquisa) && !curso.descricao.toLowerCase().includes(pesquisa)) ok = false;
-
-                return ok;
-              });
-
-              paginaAtual = 1;
-              renderizarCursos();
-              atualizarPaginacao();
-            }
-
-            // ---- MODAL ----
-            function abrirModal(cursoId) {
-              const curso = cursos.find(c => c.id == cursoId);
-              if (!curso) return;
-
-              // preencher dados na modal
-              document.getElementById("cursoNomeModal").textContent = curso.nome;
-              document.getElementById("cursoDescricaoModal").textContent = curso.descricao;
-              document.getElementById("curso").value = curso.nome;
-
-              // resetar formulário
-              document.getElementById("inscricaoForm").reset();
-              document.getElementById("curso").value = curso.nome;
-              document.getElementById("successMessage").classList.add("d-none");
-              document.getElementById("inscricaoForm").classList.remove("d-none");
-
-              // abrir modal bootstrap
-              const modal = new bootstrap.Modal(document.getElementById("inscricaoModal"));
-              modal.show();
-            }
-
-            // ---- ENVIO ----
-            function enviarDados() {
-              const form = document.getElementById("inscricaoForm");
-              const formData = new FormData(form);
-              const dados = Object.fromEntries(formData.entries());
-
-              const camposObrigatorios = [
-                "curso", "nomeCompleto", "sexo", "idade", 
-                "bilheteIdentidade", "telefone", "email", 
-                "provincia", "habilitacoes"
-              ];
-
-              for (let campo of camposObrigatorios) {
-                if (!dados[campo]) {
-                  alert(`Por favor, preencha o campo: ${campo.replace(/([A-Z])/g, " $1").toLowerCase()}`);
-                  return;
-                }
-              }
-
-              const btnEnviar = document.getElementById("btnEnviar");
-              const textoOriginal = btnEnviar.innerHTML;
-              btnEnviar.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
-              btnEnviar.disabled = true;
-
-              setTimeout(() => {
-                const assunto = `Nova Inscrição - ${dados.curso}`;
-                const corpo = formatarEmailCorpo(dados);
-                console.log("Enviando email:", { assunto, corpo, dados });
-
-                document.getElementById("inscricaoForm").classList.add("d-none");
-                document.getElementById("successMessage").classList.remove("d-none");
-
-                btnEnviar.innerHTML = textoOriginal;
-                btnEnviar.disabled = false;
-
-                setTimeout(() => {
-                  bootstrap.Modal.getInstance(document.getElementById("inscricaoModal")).hide();
-                }, 3000);
-              }, 2000);
-            }
-
-            function formatarEmailCorpo(dados) {
-              return `
-            NOVA INSCRIÇÃO RECEBIDA
-
-            CURSO: ${dados.curso}
-
-            DADOS PESSOAIS:
-            Nome Completo: ${dados.nomeCompleto}
-            Sexo: ${dados.sexo === "F" ? "Feminino" : "Masculino"}
-            Idade: ${dados.idade} anos
-            Bilhete de Identidade: ${dados.bilheteIdentidade}
-
-            CONTACTOS:
-            Telefone: ${dados.telefone}
-            Email: ${dados.email}
-            Província/Cidade: ${dados.provincia}
-
-            FORMAÇÃO:
-            Habilitações Literárias: ${dados.habilitacoes}
-            Instituição: ${dados.instituicao || "Não informado"}
-
-            ---
-            Inscrição enviada através do formulário online em ${new Date().toLocaleString("pt-AO")}
-              `;
-            }
-
-            // ---- EVENTOS ----
-            document.addEventListener("DOMContentLoaded", function () {
-              carregarCursos();
-
-              document.getElementById("btnEnviar").addEventListener("click", enviarDados);
-              document.getElementById("inscricaoForm").addEventListener("submit", function (e) {
-                e.preventDefault();
-                enviarDados();
-              });
-
-              document.querySelectorAll('.filter-checkbox input').forEach(el => el.addEventListener('change', aplicarFiltros));
-              document.querySelector('.search-box input').addEventListener('input', aplicarFiltros);
-    });
-    </script>
-
 
     <!-- /Seção Cursos -->
     <footer id="footer" class="footer dark-background">
@@ -776,13 +555,249 @@
             >
               <i class="bi bi-x-circle me-2"></i>Cancelar
             </button>
-            <button type="button" class="btn btn-submit" id="btnEnviar">
+            <button type="button" class="btn btn-submit btn-getstarte" id="btnEnviar">
               <i class="bi bi-send me-2"></i>Enviar Inscrição
             </button>
           </div>
         </div>
       </div>
     </div>
+
+<!-- Script para carregar cursos -->
+    <script>
+            let cursos = [];
+            let cursosFiltrados = [];
+            let paginaAtual = 1;
+            const cursosPorPagina = 6;
+
+            async function carregarCursos() {
+              const res = await fetch('cursos.json');
+              cursos = await res.json();
+              cursosFiltrados = [...cursos];
+              renderizarCursos();
+              atualizarPaginacao();
+            }
+
+            // Renderizar cards de cursos
+            function renderizarCursos() {
+              const container = document.querySelector('.courses-grid .row');
+              container.innerHTML = '';
+
+              const inicio = (paginaAtual - 1) * cursosPorPagina;
+              const fim = inicio + cursosPorPagina;
+              const pagina = cursosFiltrados.slice(inicio, fim);
+
+              if (pagina.length === 0) {
+                container.innerHTML = '<p>Nenhum curso encontrado.</p>';
+                return;
+              }
+
+              pagina.forEach(curso => {
+                container.innerHTML += `
+                  <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="course-card">
+                      <div class="course-image">
+                        <img src="${curso.imagem}" alt="${curso.nome}" class="img-fluid" />
+                        ${curso.badge ? `<div class="course-badge">${curso.badge}</div>` : ''}
+                        <div class="course-price"> ${curso.preco.toLocaleString()} Kz</div>
+                      </div>
+                      <div class="course-content">
+                        <div class="course-meta">
+                          <span class="category">${curso.categoria}</span>
+                          <span class="level">${curso.nivel}</span>
+                        </div>
+                        <h3>${curso.nome}</h3>
+                        <p>${curso.subtitulo}</p>
+                        <p>${curso.descricao}</p>
+                        <div class="course-stats">
+                          <div class="stat"><i class="bi bi-clock"></i> <span>${curso.duracaoTexto}</span></div>
+                          <div class="stat"><i class="bi bi-people"></i> <span>${curso.estudantes.toLocaleString()} estudantes</span></div>
+                        </div>
+                        <a href="#" class="btn-course" onclick="abrirModal('${curso.id}')">
+                          Inscreva-se Agora
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              });
+            }
+
+            function atualizarPaginacao() {
+              const totalPaginas = Math.ceil(cursosFiltrados.length / cursosPorPagina);
+              const paginacao = document.querySelector('.pagination');
+              paginacao.innerHTML = '';
+
+              paginacao.innerHTML += `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" onclick="mudarPagina(${paginaAtual - 1})"><i class="bi bi-chevron-left"></i></a>
+              </li>`;
+
+              for (let i = 1; i <= totalPaginas; i++) {
+                paginacao.innerHTML += `<li class="page-item ${i === paginaAtual ? 'active' : ''}">
+                  <a class="page-link" href="#" onclick="mudarPagina(${i})">${i}</a>
+                </li>`;
+              }
+
+              paginacao.innerHTML += `<li class="page-item ${paginaAtual === totalPaginas ? 'disabled' : ''}">
+                <a class="page-link" href="#" onclick="mudarPagina(${paginaAtual + 1})"><i class="bi bi-chevron-right"></i></a>
+              </li>`;
+            }
+
+            function mudarPagina(n) {
+              const totalPaginas = Math.ceil(cursosFiltrados.length / cursosPorPagina);
+              if (n >= 1 && n <= totalPaginas) {
+                paginaAtual = n;
+                renderizarCursos();
+                atualizarPaginacao();
+              }
+            }
+
+            // ---- FILTROS ----
+            function aplicarFiltros() {
+              const categorias = [...document.querySelectorAll('.filter-group:nth-child(1) input:checked')].map(el => el.parentElement.textContent.trim());
+              const niveis = [...document.querySelectorAll('.filter-group:nth-child(2) input:checked')].map(el => el.parentElement.textContent.trim());
+              const duracoes = [...document.querySelectorAll('.filter-group:nth-child(3) input:checked')].map(el => el.parentElement.textContent.trim());
+              const pesquisa = document.querySelector('.search-box input').value.toLowerCase();
+
+              cursosFiltrados = cursos.filter(curso => {
+                let ok = true;
+
+                if (!categorias.includes('Todas as Categorias') && !categorias.includes(curso.categoria)) ok = false;
+                if (!niveis.includes('Todos os Níveis') && !niveis.includes(curso.nivel)) ok = false;
+
+                if (duracoes.length > 0) {
+                  if (duracoes.includes('Menos de 5 horas') && curso.duracao >= 5) ok = false;
+                  if (duracoes.includes('5 a 20 horas') && (curso.duracao < 5 || curso.duracao > 20)) ok = false;
+                  if (duracoes.includes('Mais de 20 horas') && curso.duracao <= 20) ok = false;
+                }
+
+                if (pesquisa && !curso.nome.toLowerCase().includes(pesquisa) && !curso.descricao.toLowerCase().includes(pesquisa)) ok = false;
+
+                return ok;
+              });
+
+              paginaAtual = 1;
+              renderizarCursos();
+              atualizarPaginacao();
+            }
+
+            // ---- MODAL ----
+            function abrirModal(cursoId) {
+              const curso = cursos.find(c => c.id == cursoId);
+              if (!curso) return;
+
+              // preencher dados na modal
+              document.getElementById("cursoNomeModal").textContent = curso.nome;
+              document.getElementById("cursoDescricaoModal").textContent = curso.descricao;
+              document.getElementById("curso").value = curso.nome;
+
+              // resetar formulário
+              document.getElementById("inscricaoForm").reset();
+              document.getElementById("curso").value = curso.nome;
+              document.getElementById("successMessage").classList.add("d-none");
+              document.getElementById("inscricaoForm").classList.remove("d-none");
+
+              // abrir modal bootstrap
+              const modal = new bootstrap.Modal(document.getElementById("inscricaoModal"));
+              modal.show();
+            }
+
+      // ---- ENVIO ----
+      function enviarDados() {
+        const form = document.getElementById("inscricaoForm");
+        const formData = new FormData(form);
+        const dados = Object.fromEntries(formData.entries());
+
+        const camposObrigatorios = [
+          "curso", "nomeCompleto", "sexo", "idade",
+          "bilheteIdentidade", "telefone", "email",
+          "provincia", "habilitacoes"
+        ];
+
+        for (let campo of camposObrigatorios) {
+          if (!dados[campo]) {
+            alert(`Por favor, preencha o campo: ${campo.replace(/([A-Z])/g, " $1").toLowerCase()}`);
+            return;
+          }
+        }
+
+        const btnEnviar = document.getElementById("btnEnviar");
+        const textoOriginal = btnEnviar.innerHTML;
+        btnEnviar.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
+        btnEnviar.disabled = true;
+
+        // Enviar para o PHP
+        fetch("enviar.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            assunto: `Nova Inscrição - ${dados.curso}`,
+            corpo: formatarEmailCorpo(dados)
+          })
+        })
+        .then(res => res.text())
+        .then(resposta => {
+          if (resposta === "OK") {
+            document.getElementById("inscricaoForm").classList.add("d-none");
+            document.getElementById("successMessage").classList.remove("d-none");
+          } else {
+            alert("Erro ao enviar: " + resposta);
+          }
+        })
+        .catch(err => alert("Falha de conexão: " + err))
+        .finally(() => {
+          btnEnviar.innerHTML = textoOriginal;
+          btnEnviar.disabled = false;
+
+          setTimeout(() => {
+            bootstrap.Modal.getInstance(document.getElementById("inscricaoModal")).hide();
+          }, 3000);
+        });
+      }
+
+      function formatarEmailCorpo(dados) {
+        return `
+          NOVA INSCRIÇÃO RECEBIDA
+
+          CURSO: ${dados.curso}
+
+          DADOS PESSOAIS:
+          Nome Completo: ${dados.nomeCompleto}
+          Sexo: ${dados.sexo === "F" ? "Feminino" : "Masculino"}
+          Idade: ${dados.idade} anos
+          Bilhete de Identidade: ${dados.bilheteIdentidade}
+
+          CONTACTOS:
+          Telefone: ${dados.telefone}
+          Email: ${dados.email}
+          Província/Cidade: ${dados.provincia}
+
+          FORMAÇÃO:
+          Habilitações Literárias: ${dados.habilitacoes}
+          Instituição: ${dados.instituicao || "Não informado"}
+
+          ---
+          Inscrição enviada através do formulário online em ${new Date().toLocaleString("pt-AO")}
+        `;
+      }
+
+      // ---- EVENTOS ----
+      document.addEventListener("DOMContentLoaded", function () {
+        carregarCursos();
+
+        document.getElementById("btnEnviar").addEventListener("click", enviarDados);
+        document.getElementById("inscricaoForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          enviarDados();
+        });
+
+        document.querySelectorAll('.filter-checkbox input').forEach(el => el.addEventListener('change', aplicarFiltros));
+        document.querySelector('.search-box input').addEventListener('input', aplicarFiltros);
+      });
+   </script>
+
+
+
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
