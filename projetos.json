@@ -2,76 +2,45 @@
   {
     "id": 1,
     "nome": "Obras",
-    "descricao": "EMPREITADA DA CONSTRUÇÃO E APETRECHAMENTO DE UMA ESCOLA T7 (SETE SALAS) NA COMUNA DA QUIMINHA, MUNICÍPIO DO ICOLO E BENGO, PROVÍNCIA DE LUANDA",
-    "categoria": "Software",
-    "cliente": "Escola Modelo",
+    "descricao": "EMPREITADA DA CONSTRUÇÃO E APETRECHAMENTO DE UMA ESCOLA T7 (SETE SALAS) NA COMUNA DA QUIMINHA, MUNICÍPIO DO ICOLO E BENGO, PROVÍNCIA DE LUANDA.",
+    "categoria": "Construção",
+    "cliente": "Desconhecido",
     "data": "2025-02-10",
     "imagens": ["assets/img/projects/01.png", "assets/img/projects/01.1.png"]
   },
   {
     "id": 2,
-    "nome": "Website Institucional",
-    "descricao": "Site moderno e responsivo para instituição financeira.",
-    "categoria": "Web Design",
-    "cliente": "Banco XYZ",
-    "data": "2025-01-05",
-    "imagens": ["assets/img/projects/02.png", "assets/img/projects/02.1.png"]
-  },
-  {
-    "id": 3,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
-    "data": "2025-03-20",
-    "imagens": ["assets/img/projects/03.png"]
-  },
-  {
-    "id": 4,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
+    "nome": "Obras",
+    "descricao": "EMPREITADA DE REABILITAÇÃO DAS VIAS SECUNDÁRIAS – TROÇO: SEDE MUNICIPAL DE NHARÊA/CAIEIE/COMUNAL DO DANDO COM UMA EXTENSÃO DE 62 KILÔMETROS.",
+    "categoria": "Infraestrutura Rodoviária",
+    "cliente": "Desconhecido",
     "data": "2025-03-20",
     "imagens": ["assets/img/projects/04.png", "assets/img/projects/04.1.png"]
   },
   {
-    "id": 5,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
+    "id": 3,
+    "nome": "Obras",
+    "descricao": "EMPREITADA DE CONSTRUÇÃO DA ESCOLA DE 12 SALAS DE AULAS, NA COMUNA LUMA-CASSAI, PROVÍNCIA DA LUNDA – SUL.",
+    "categoria": "Construção Escolar",
+    "cliente": "Desconhecido",
     "data": "2025-03-20",
     "imagens": ["assets/img/projects/05.png", "assets/img/projects/05.1.png"]
   },
   {
-    "id": 6,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
+    "id": 4,
+    "nome": "Obras",
+    "descricao": "REABILITAÇÃO DE UMA RESIDÊNCIA NO BAIRRO ZONA VERDE III, MUNICÍPIO DE BELAS, PROVÍNCIA DE LUANDA.",
+    "categoria": "Reabilitação Residencial",
+    "cliente": "Desconhecido",
     "data": "2025-03-20",
     "imagens": ["assets/img/projects/06.png", "assets/img/projects/06.1.png"]
   },
   {
-    "id": 7,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
-    "data": "2025-03-20",
-    "imagens": [
-      "assets/img/projects/7.png",
-      "assets/img/projects/7.1.png",
-      "assets/img/projects/7.2.png"
-    ]
-  },
-  {
-    "id": 8,
-    "nome": "Aplicativo de Entregas",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
+    "id": 5,
+    "nome": "Fiscalização",
+    "descricao": "FISCALIZAÇÃO DE OBRA DE CONTENÇÃO E ESTANCAMENTO DA RAVINA NA ESTRADA NACIONAL 225 MUNICÍPIO DO CUANDO, PROVÍNCIA DA LUNDA NORTE.",
+    "categoria": "Fiscalização Ambiental",
+    "cliente": "Desconhecido",
     "data": "2025-03-20",
     "imagens": [
       "assets/img/projects/8.png",
@@ -82,14 +51,5 @@
       "assets/img/projects/8.5.png",
       "assets/img/projects/8.6.png"
     ]
-  },
-  {
-    "id": 9,
-    "nome": "10",
-    "descricao": "Aplicativo móvel para controle de entregas e rastreamento em tempo real.",
-    "categoria": "Aplicativo",
-    "cliente": "Delivery Express",
-    "data": "2025-03-20",
-    "imagens": ["assets/img/projects/fo.png", "assets/img/projects/fo.1.png"]
   }
 ]
