@@ -10,16 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Email de destino
-    $destinatario = "geral@nguji.ao";
+    $destinatario = "academia@nguji.ao";
 
     // Assunto e corpo vindos do JS
     $assunto = $data["assunto"] ?? "Nova inscrição";
     $mensagem = $data["corpo"] ?? "";
 
-    // Cabeçalhos do e-mail
-    $headers = "From: noreply@seudominio.com\r\n";
-    $headers .= "Reply-To: noreply@seudominio.com\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+ // Cabeçalhos do e-mail
+$headers  = "From: NGUJI Academia <geral@nguji.ao>\r\n";
+$headers .= "Reply-To: academia@nguji.ao\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
 
     // Enviar e-mail
     if (mail($destinatario, $assunto, $mensagem, $headers)) {
